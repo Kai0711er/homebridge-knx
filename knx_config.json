@@ -1,93 +1,271 @@
 {
-    "knxconnection": "knxd",
-    "knxd_ip": "192.168.178.212",
+    "knxd_ip": "localhost",
     "knxd_port": 6720,
     "AllowWebserver": true,
-    "WebserverPort": 18082,
+    "AllowKillHomebridge": false,
     "Devices": [
         {
-            "DeviceName": "Arbeitszimmerlampe",
-            "Services": [
-                {
-                    "ServiceType": "Lightbulb",
-                    "ServiceName": "Bürolampe",
-                    "Characteristics": [
-                        {
-                            "Type": "On",
-                            "Set": [
-                                "1/3/5"
-                            ],
-                            "Listen": [
-                                "1/3/5"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "DeviceName": "Arbeitszimmerrollo",
+            "DeviceName": "Kai Fenster",
             "Services": [
                 {
                     "ServiceType": "WindowCovering",
-                    "Handler": "GiraJalousieActuator",
-                    "ServiceName": "Büro-Rollo",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Rolladen Kai",
                     "Characteristics": [
                         {
                             "Type": "TargetPosition",
                             "Set": [
-                                "2/3/46"
+                                "2/0/1"
                             ],
-                            "DPT": "DPT5"
+                            "DPT": "DPT1"
                         },
                         {
-                            "Type": "CurrentPosition",
-                            "Listen": [
-                                "2/3/26"
-                            ]
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "2/1/1"
+                            ],
+                            "DPT": "DPT1"
                         },
                         {
                             "Type": "PositionState"
-                        }
-                    ],
-                    "KNXObjects": [
-                        {
-                            "Type": "ShutterMove",
-                            "Listen": "2/3/6",
-                            "DPT": "DPT1"
-                        }
-                    ],
-                    "KNXReadRequests": [
-                        "2/3/26",
-                        "2/3/46"
-                    ],
-                    "LocalConstants": {
-                        "SomeVariable_notUsedHere": "SomeValue",
-                        "OtherBlinds_notUsedHere": "OfficeShutter"
-                    }
-                }
-            ]
-        },
-                {
-            "DeviceName": "TestDevice",
-            "hint": "Sample to show characteristics without KNX addresses",
-            "Services": [
-                {
-                    "ServiceType": "LockMechanism",
-                    "Handler": "DummyHandler",
-                    "ServiceName": "Türschloss",
-                    "Characteristics": [
-                        {
-                            "Type": "LockCurrentState"
                         },
                         {
-                            "Type": "LockTargetState"
+                            "Type": "CurrentPosition"
                         }
-                    ]
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 32,
+                        "openingOffset": 3
+                    },
+                    "subtype": "SUB_c4bf42cc-f846-4906-b358-9861c3f9e27a"
                 }
-            ]
+            ],
+            "UUID": "2bba45d1-5a80-4431-9c82-c49fe0757eb5"
+        },
+        {
+            "DeviceName": "Büro Fenster",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Rolladen Büro",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "2/0/2"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "2/1/2"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 32,
+                        "openingOffset": 4
+                    },
+                    "subtype": "SUB_7459c9b1-1801-4111-a5df-6b5f278a04a7"
+                }
+            ],
+            "UUID": "0f17538a-5bad-405b-85ef-f68a25b3aae0"
+        },
+        {
+            "DeviceName": "Til Fenster rechts",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Rolladen Til rechts",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "2/0/3"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "2/1/3"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 32,
+                        "openingOffset": 2
+                    },
+                    "subtype": "SUB_b5eeb929-3521-4387-8e85-ddea4567b464"
+                }
+            ],
+            "UUID": "46e0cad8-a04d-4785-927b-4d3a7702bfb7"
+        },
+        {
+            "DeviceName": "Küche Fenster",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Jalousie Küche Fenster",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "1/0/1"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "1/1/1"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 43,
+                        "openingOffset": 1
+                    },
+                    "subtype": "SUB_ffe676e5-bd93-413e-872a-cae735255583"
+                }
+            ],
+            "UUID": "ddca4414-a48e-4d1f-bd43-9950a4a85f58"
+        },
+        {
+            "DeviceName": "Küche Tür",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Jalousie Küche Tür",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "1/0/2"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "1/1/2"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 57,
+                        "openingOffset": 1
+                    },
+                    "subtype": "SUB_3bdb8e94-b7ad-4705-9825-ce2d99d5be64"
+                }
+            ],
+            "UUID": "059a33c2-2868-491f-a87f-67b086794d13"
+        },
+        {
+            "DeviceName": "Martin Fenster",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt2",
+                    "ServiceName": "Jalousie Martin",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "1/0/3"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "1/1/3"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "subtype": "SUB_a2808f58-23c6-43cc-ac7e-3d3690d9f87b"
+                }
+            ],
+            "UUID": "d9494556-01c6-450b-b74e-6eac0544ac28"
+        },
+        {
+            "DeviceName": "Wohnzimmer Fenster",
+            "Services": [
+                {
+                    "ServiceType": "WindowCovering",
+                    "Handler": "WindowCoveringTilt3",
+                    "ServiceName": "Jalousie Wohnzimmer",
+                    "Characteristics": [
+                        {
+                            "Type": "TargetPosition",
+                            "Set": [
+                                "1/0/4"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "HoldPosition",
+                            "Set": [
+                                "1/1/4"
+                            ],
+                            "DPT": "DPT1"
+                        },
+                        {
+                            "Type": "PositionState"
+                        },
+                        {
+                            "Type": "CurrentPosition"
+                        }
+                    ],
+                    "LocalConstants": {
+                        "closingTime": 43,
+                        "openingOffset": 1
+                    },
+                    "subtype": "SUB_5dd31597-050b-4072-bf4e-ffa6683932cb"
+                }
+            ],
+            "UUID": "fa7f1eb3-2fba-4a13-8999-5c8b81c65fa5"
         }
     ],
     "GroupAddresses": []
-
 }
